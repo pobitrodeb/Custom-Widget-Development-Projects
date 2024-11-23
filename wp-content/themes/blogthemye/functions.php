@@ -64,3 +64,24 @@ function blogthemye_sidebar_register(){
         )); 
 }
 add_action('widgets_init', 'blogthemye_sidebar_register'); 
+
+
+//Custom Widget Development 
+
+class my_widget extends WP_Widget{
+        public function __construct(){
+                parent:: __construct(
+                        'my_widget', 
+                        __('My Widget')
+                ); 
+               add_action('widgets_init', function(){
+                        register_widget('my_widget');
+               }); 
+        }
+        public function widget($args, $instant){
+                echo 'This is custom Widget Data'; 
+        }
+        // public function form(){}
+        // public function update(){}
+}
+$my_widget = new my_widget(); 
