@@ -79,9 +79,31 @@ class my_widget extends WP_Widget{
                }); 
         }
         public function widget($args, $instant){
-                echo 'This is custom Widget Data'; 
+                echo $args['before_widget'];
+                echo $args['before_title'];
+                echo $instant['title'];
+                echo $args['after_title'];
+                echo $instant['content'];
+                echo $args['before_widget'];
+               
         }
-        // public function form(){}
+        public function form($instant){
+                $title  = $instant['title']; 
+                $content  = $instant['content']; 
+                ?>
+                        <p>
+                                <label for="<?php echo $this->get_field_id('title'); ?>"  class="widefat"> Title </label>
+                                <input type="text" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $title;?>"  class="widefat">
+                        </p>
+
+                        <p>
+                                <label for="<?php echo $this->get_field_id('content'); ?>"  class="widefat"> Content </label>
+                               <textarea name="<?php echo $this->get_field_name('content'); ?>" id="<?php echo $this->get_field_id('content'); ?>" value="<?php echo $content; ?>" class="widefat"></textarea>
+                        </p>
+                <?php
+        }
+
+
         // public function update(){}
 }
 $my_widget = new my_widget(); 
