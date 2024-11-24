@@ -129,7 +129,7 @@ class blogthemye_renect_post_widget extends WP_Widget{
                 echo $args['after_title']; 
                 $arg = array(
                         'post_type'                     => 'post', 
-                        'posts_per_page'                => 5, 
+                        'posts_per_page'                => $instant['post_limit'], 
                         'order_by'                      => 'DESC',
                 );
                 $query  = new WP_Query($arg); 
@@ -149,10 +149,15 @@ class blogthemye_renect_post_widget extends WP_Widget{
 
         public function form($instant){
                 $title = $instant['title']; 
+                $post_limit = $instant['post_limit'];
                 ?>
                         <p class="widefat">
                                 <label for="<?php echo $this->get_field_id('title');?>" class="widefat"> Widget Title </label>
                                 <input type="text" class="widefat" name="<?php echo $this->get_field_name('title');?>" id="<?php echo $this->get_field_id('title');?>" value="<?php echo $title; ?>" >
+                        </p>
+                        <p class="widefat">
+                                <label for="<?php echo $this->get_field_id('post_limit');?>" class="widefat"> Post Limit  </label>
+                                <input type="number" class="widefat" name="<?php echo $this->get_field_name('post_limit');?>" id="<?php echo $this->get_field_id('post_limit');?>" value="<?php echo $post_limit; ?>" >
                         </p>
                 <?php
         }
