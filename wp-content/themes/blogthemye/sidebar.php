@@ -54,7 +54,7 @@
                                     <h6><a href="post1.html">Our dreams come true</a></h6>
                                     <div class="text">OCTOBER 09, 2018</div>
                                 </div>
-                        </div>
+                             </div>
 
 
                         <div class="sidebar-newsletter centred">
